@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebGPU Neural Network Training</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>🚀 WebGPU Neural Network Training</h1>
+    <p class="subtitle">Train a 2-layer neural network entirely on your GPU</p>
+
+    <div class="explanation">
+      <h4>How it works:</h4>
+      <p><strong>1. Draw your data:</strong> Click the canvas to create training points. Red circles are class 0, blue
+        circles are class 1.</p>
+      <p><strong>2. Train:</strong> The neural network (with 2 hidden layers of 16 neurons each) trains using
+        GPU-accelerated forward and backward propagation.</p>
+      <p><strong>3. See results:</strong> Watch the decision boundary form in real-time as the model learns to classify
+        your data.</p>
+    </div>
+
+    <div id="status" class="status-info">Ready to train. Click on the canvas to add data points!</div>
+
+    <div class="controls">
+      <div class="training-mode">
+        <label>Training Mode:</label>
+        <label>
+          <input type="radio" name="trainingMode" value="gpu" checked>
+          GPU (WebGPU)
+        </label>
+        <label>
+          <input type="radio" name="trainingMode" value="cpu">
+          CPU (JavaScript)
+        </label>
+      </div>
+      <button id="trainBtn">Start Training</button>
+      <button id="stopBtn" disabled>Stop Training</button>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h3>Training Data</h3>
+        <canvas id="dataCanvas" width="300" height="300"></canvas>
+        <div class="dataset-controls">
+          <button id="clear-btn" class="clear">Clear Data</button>
+          <button id="generate-spiral-btn">Generate Spiral</button>
+          <button id="generate-circle-btn">Generate Circle</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Decision Boundary</h3>
+        <canvas id="modelCanvas" width="300" height="300"></canvas>
+      </div>
+
+      <div class="panel">
+        <h3>Training Metrics</h3>
+        <canvas id="lossChart"></canvas>
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-label">Epoch</div>
+            <div class="metric-value" id="epoch">0</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Loss</div>
+            <div class="metric-value" id="loss">-</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Accuracy</div>
+            <div class="metric-value" id="accuracy">-</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Time/Epoch</div>
+            <div class="metric-value" id="time">-</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+
+</body>
+
+</html>
