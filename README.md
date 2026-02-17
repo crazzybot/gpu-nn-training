@@ -67,7 +67,7 @@ pnpm install
 pnpm dev
 ```
 
-4. Open your browser to the local development URL (typically `http://localhost:5173`)
+4. Open your browser to the local development URL (`http://localhost:3000`)
 
 ## How to Use
 
