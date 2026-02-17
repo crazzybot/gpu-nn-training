@@ -232,7 +232,7 @@ function calculateMetrics(model: NNModel, inputs: Float32Array[], targets: Float
   
   return {
     loss: totalLoss / outputs.length,
-    accuracy: correct / outputs.length
+    accuracy: correct / outputs.length * 100 // in percentage
   };
 }
 
